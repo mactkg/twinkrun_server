@@ -2,14 +2,14 @@
 require 'em-websocket'
 
 def getMsg(who, msg)
-  return "{\"user\": \"#{who}\", \"msg\": \"#{msg}\"}"
+  return "{\"user\": \"#{who}\", \"msg\": #{msg}}"
 end
 
 EM::run do
 
   puts "server start"
   @channel = EM::Channel.new
-  EventMachine::WebSocket.start(:host => "192.168.11.17", :port => 8080) do |ws|
+  EventMachine::WebSocket.start(:host => "192.168.5.1", :port => 8080) do |ws|
     name = nil
     sid = nil
 
@@ -21,7 +21,7 @@ EM::run do
         name = handshake.query["name"]
       end
       
-      @channel.push getMsg("server", "You connected to #{handshake.path}!")
+      @channel.push getMsg("server", "\"You connected to #{handshake.path}!\"")
       puts "<#{name}> connected!"
     }
 
@@ -32,7 +32,7 @@ EM::run do
 
     ws.onclose {
       @channel.unsubscribe(sid)
-      @channel.push getMsg("server", "#{name} is disconnected.")
+      @channel.push getMsg("server", "\"#{name} is disconnected.\"")
       puts "<#{name}> disconnected."
     }
   end
