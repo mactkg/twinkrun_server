@@ -22,7 +22,7 @@ EM::run do
         name = handshake.query["name"]
       end
       
-      @channel.push getMsg("server", "\"You connected to #{handshake.path}!\"")
+      #@channel.push getMsg("server", "\"You connected to #{handshake.path}!\"")
       puts "<#{name}> connected!"
     }
 
@@ -33,7 +33,7 @@ EM::run do
 
     ws.onclose {
       @channel.unsubscribe(sid)
-      @channel.push getMsg("server", "\"#{name} is disconnected.\"")
+      #@channel.push getMsg("server", "\"#{name} is disconnected.\"")
       puts "<#{name}> disconnected."
     }
   end
