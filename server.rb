@@ -1,5 +1,6 @@
 #coding:utf-8
 require 'em-websocket'
+require './config.rb'
 
 def getMsg(who, msg)
   return "{\"user\": \"#{who}\", \"msg\": #{msg}}"
@@ -9,7 +10,7 @@ EM::run do
 
   puts "server start"
   @channel = EM::Channel.new
-  EventMachine::WebSocket.start(:host => "192.168.5.1", :port => 8080) do |ws|
+  EventMachine::WebSocket.start(:host => $config['IP_ADDRESS'], :port => 8080) do |ws|
     name = nil
     sid = nil
 

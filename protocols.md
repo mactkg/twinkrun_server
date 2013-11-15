@@ -11,6 +11,7 @@ ws://localhost:8080/join?name=USERNAME
 {
   "user": "誰が送っているか(server, spectator, USERNAME)",
   "msg": { #この中がメッセージ
+    "status": "(ready, counting, playing, done)",
     "score": "スコアが入る(int)",
     "color_present": "現在の色が入る(RED, GREEN, WHITE, NONE:まだスタートしてない)",
     "color_next": "次の色が入る(RED, GREEN, WHITE, NONE:おわり)",
