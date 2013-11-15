@@ -12,15 +12,29 @@ ws://localhost:8080/join?name=USERNAME
   "user": "誰が送っているか(server, spectator, USERNAME)",
   "msg": { #この中がメッセージ
     "status": "(ready, counting, playing, done)",
-    "score": "スコアが入る(int)",
-    "color_present": "現在の色が入る(RED, GREEN, WHITE, NONE:まだスタートしてない)",
-    "color_next": "次の色が入る(RED, GREEN, WHITE, NONE:おわり)",
-    "phase": "今何回目の切り替えか(0始まり, int)",
-    "phase_max": "何回目の切り替えで終わるか(int)",
-    "time_elapsed": "始まってからの秒数(int)",
-    "graph" #入れるか？
-  }
+ }
 }
+#### status == ready
+その他のネタ：なし
+
+#### status == counting
+その他のネタ
+- count : カウント(5->1)
+
+#### status == playing
+その他のネタ
+- "score": "スコアが入る(int)",
+- "color_present": "現在の色が入る(RED, GREEN, WHITE, NONE:まだスタートしてない)",
+- "color_next": "次の色が入る(RED, GREEN, WHITE, NONE:おわり)",
+- "phase": "今何回目の切り替えか(0始まり, int)",
+- "phase_max": "何回目の切り替えで終わるか(int)",
+- "time_elapsed": "始まってからの秒数(int)",
+- "graph" #入れるか？
+
+#### status == done
+その他のネタ
+- "rival": ライバル
+- "いろいろ"
 
 ### 出来ると良いこと
 - 今吸ってる相手
