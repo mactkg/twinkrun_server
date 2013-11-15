@@ -12,7 +12,8 @@ ws://localhost:8080/join?name=USERNAME
   "user": "誰が送っているか(server, spectator, USERNAME)",
   "msg": { #この中がメッセージ
     "status": "(ready, counting, playing, done)",
- }
+    あとはその他のネタがつらつら入る。statusに応じていろいろ
+  }
 }
 #### status == ready
 その他のネタ：なし
